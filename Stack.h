@@ -1,8 +1,10 @@
-struct data{		// struct onde é guardada as informações de cada nó da lista
-	float NUMBER;		// variável onde será armasendo cada numero 
+struct data{		// struct do tipo dado, basicamente onde é armazenado os dados inseridos na pilha
+	float NUMBER;		// variável onde será armasenado o dado do tipo float  
 };
 
-typedef struct element* Stack; // padronização do nome do ponteiro tipo lista
+typedef struct element* Stack;
+
+// DECLARACAO DAS FUNCOES BASICAS DA PILHA
 
 Stack* createStack();
 void freeStack(Stack* ST);

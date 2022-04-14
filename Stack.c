@@ -6,13 +6,15 @@
 //Definição do tipo lista
 
 struct element{
-	struct data DATA;		// campo do tipo aluno que recebe o dado a ser armazenado
-	struct element *next;		// ponteiro do tipo elemento que indica o proximo elemento 
+	struct data DATA;		// campo do tipo dado
+	struct element *next;		// ponteiro que armazena a proxima posicao da pilha 
 };
 
 typedef struct element Elem;		// definição de um nome padrão para a struct elemento
 
-Stack* createStack(){
+// FUNCOES BASICAS DA PILHA 
+
+Stack* createStack(){       // Funcao de criacao da pilha
     Stack* ST = (Stack*) malloc(sizeof(Stack));
     if (ST != NULL){
         *ST = NULL;
@@ -20,7 +22,7 @@ Stack* createStack(){
     return ST;
 }
 
-void freeStack(Stack* ST){
+void freeStack(Stack* ST){      // Funcao de destruicao da pilha
     if (ST != NULL){
         Elem* NO;
         while ((*ST)!= NULL){
@@ -32,7 +34,7 @@ void freeStack(Stack* ST){
     }
 }
 
-int sizeStack(Stack* ST){
+int sizeStack(Stack* ST){       // Funcao que retorna o tamanho da pilha
     if(ST == NULL){
         return 0;
     }
@@ -45,7 +47,7 @@ int sizeStack(Stack* ST){
     return COUNT;    
 }
 
-int emptyStack(Stack* ST){
+int emptyStack(Stack* ST){       // Funcao que retorna se a pilha está vazia 
     if(ST == NULL){
         return 1;
     }
@@ -55,7 +57,7 @@ int emptyStack(Stack* ST){
     return 0;
 }
 
-int insertStack(Stack* ST, struct data DT){
+int insertStack(Stack* ST, struct data DT){       // Funcao de insercao na pilha (Lembrando que pilha e LIFO)
     if(ST == NULL){
         return 0;
     }
@@ -70,7 +72,7 @@ int insertStack(Stack* ST, struct data DT){
     return 1;
 }
 
-int removeStack(Stack* ST){
+int removeStack(Stack* ST){       // Funcao de remocao na pilha (Essa remocao sempre acontece do topo) 
     if(ST == NULL){
         return 0;
     }
@@ -83,7 +85,7 @@ int removeStack(Stack* ST){
     return 1;
 }
 
-int accessTopStack(Stack* ST, struct data *DT){
+int accessTopStack(Stack* ST, struct data *DT){       // Funcao que acessa o topo da pilha
     if(ST == NULL){
         return 0;
     }if((*ST) == NULL){
